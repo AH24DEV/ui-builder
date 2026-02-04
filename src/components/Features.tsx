@@ -132,7 +132,7 @@ export default function Features() {
                     viewport={{ once: true }}
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                         gap: '16px'
                     }}
                 >

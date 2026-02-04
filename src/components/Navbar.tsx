@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles, Github, Star, ArrowUpRight } from 'lucide-react';
 
 const navLinks = [
-    { name: 'Components', href: '#components' },
-    { name: 'Animations', href: '#animations' },
+    { name: 'Components', href: '/components' },
+    { name: 'Animations', href: '/animations' },
     { name: 'Sandbox', href: '/sandbox' },
     { name: 'Pricing', href: '#pricing' },
 ];
@@ -79,11 +79,11 @@ export default function Navbar() {
                             fontWeight: 700,
                             color: '#FAFAFA',
                             letterSpacing: '-0.02em'
-                        }}>MobileUI</span>
+                        }}>Native Bits</span>
                     </motion.a>
 
                     {/* Desktop Nav */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="hidden md:flex">
+                    <div style={{ alignItems: 'center', gap: '8px' }} className="hidden md:flex">
                         {navLinks.map((link, i) => (
                             <motion.a
                                 key={link.name}
@@ -111,7 +111,7 @@ export default function Navbar() {
                     </div>
 
                     {/* CTA */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }} className="hidden md:flex">
+                    <div style={{ alignItems: 'center', gap: '12px' }} className="hidden md:flex">
                         <motion.a
                             href="#"
                             style={{
@@ -166,15 +166,16 @@ export default function Navbar() {
                     <motion.button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         style={{
-                            display: 'none',
                             color: '#FAFAFA',
                             background: 'rgba(255, 255, 255, 0.05)',
                             border: '1px solid rgba(255, 255, 255, 0.1)',
                             borderRadius: '10px',
                             cursor: 'pointer',
-                            padding: '10px'
+                            padding: '10px',
+                            alignItems: 'center',
+                            justifyContent: 'center'
                         }}
-                        className="md:hidden flex"
+                        className="flex md:hidden"
                         whileTap={{ scale: 0.95 }}
                     >
                         {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}

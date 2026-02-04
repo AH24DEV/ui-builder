@@ -56,7 +56,7 @@ export default function Hero() {
                 style={{
                     maxWidth: '1000px',
                     margin: '0 auto',
-                    padding: '140px 24px 100px',
+                    padding: '120px 20px 80px',
                     position: 'relative',
                     zIndex: 10,
                     textAlign: 'center',

@@ -7,7 +7,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MobileUI Pro - Animated UI Components for Mobile",
+  title: "Native Bits - UI Components for Mobile Devices",
   description: "An open source collection of high quality, animated, interactive & fully customizable components for React Native & Flutter.",
   keywords: ["react native", "flutter", "ui components", "mobile ui", "animations", "ui library"],
 };

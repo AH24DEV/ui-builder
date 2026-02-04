@@ -3,11 +3,28 @@
 import { motion } from 'framer-motion';
 import { Sparkles, Github, Twitter, Heart, ArrowUpRight } from 'lucide-react';
 
-const footerLinks = {
-    Product: ['Components', 'Animations', 'Templates', 'Changelog'],
-    Resources: ['Documentation', 'Tutorials', 'Blog', 'Examples'],
-    Company: ['About', 'Contact', 'Support'],
-    Legal: ['Privacy', 'Terms'],
+const footerLinks: Record<string, { name: string; href: string }[]> = {
+    Product: [
+        { name: 'Components', href: '/components' },
+        { name: 'Animations', href: '/animations' },
+        { name: 'Templates', href: '#' },
+        { name: 'Changelog', href: '#' }
+    ],
+    Resources: [
+        { name: 'Documentation', href: '#' },
+        { name: 'Tutorials', href: '#' },
+        { name: 'Blog', href: '#' },
+        { name: 'Examples', href: '#' }
+    ],
+    Company: [
+        { name: 'About', href: '#' },
+        { name: 'Contact', href: '#' },
+        { name: 'Support', href: '#' }
+    ],
+    Legal: [
+        { name: 'Privacy', href: '#' },
+        { name: 'Terms', href: '#' }
+    ],
 };
 
 export default function Footer() {
@@ -130,9 +147,9 @@ export default function Footer() {
                             }}>{category}</h4>
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 {links.map((link) => (
-                                    <li key={link} style={{ marginBottom: '12px' }}>
+                                    <li key={link.name} style={{ marginBottom: '12px' }}>
                                         <motion.a
-                                            href="#"
+                                            href={link.href}
                                             style={{
                                                 fontSize: '14px',
                                                 color: '#71717A',
@@ -144,7 +161,7 @@ export default function Footer() {
                                             whileHover={{ color: '#FAFAFA', x: 4 }}
                                             transition={{ duration: 0.2 }}
                                         >
-                                            {link}
+                                            {link.name}
                                         </motion.a>
                                     </li>
                                 ))}
