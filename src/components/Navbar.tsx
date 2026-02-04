@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles, Github, Star, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Github, Star, ArrowUpRight, Zap } from 'lucide-react';
 
 const navLinks = [
     { name: 'Components', href: '/components' },
@@ -32,176 +32,176 @@ export default function Navbar() {
                 left: 0,
                 right: 0,
                 zIndex: 100,
-                padding: '20px 0',
+                pointerEvents: 'none', // Allow clicks to pass through around the navbar
+                display: 'flex',
+                justifyContent: 'center',
+                paddingTop: '24px',
             }}
         >
-            <div style={{
-                maxWidth: '1200px',
-                margin: '0 auto',
-                padding: '0 24px',
-            }}>
-                <motion.div
-                    style={{
+            <motion.div
+                style={{
+                    pointerEvents: 'auto', // Re-enable clicks for the navbar itself
+                    width: 'calc(100% - 32px)',
+                    maxWidth: '1000px',
+                    padding: '8px 8px 8px 24px',
+                    background: 'rgba(9, 9, 11, 0.6)',
+                    backdropFilter: 'blur(24px)',
+                    WebkitBackdropFilter: 'blur(24px)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderRadius: '100px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0,0,0,0.2)',
+                }}
+            >
+                {/* Logo */}
+                <motion.a
+                    href="/"
+                    style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                >
+                    <div style={{
+                        position: 'relative',
+                        width: '32px',
+                        height: '32px',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'space-between',
-                        padding: isScrolled ? '12px 24px' : '0',
-                        background: isScrolled ? 'rgba(9, 9, 11, 0.8)' : 'transparent',
-                        backdropFilter: isScrolled ? 'blur(20px)' : 'none',
-                        borderRadius: isScrolled ? '16px' : '0',
-                        border: isScrolled ? '1px solid rgba(255, 255, 255, 0.06)' : 'none',
-                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                    }}
-                >
-                    {/* Logo */}
-                    <motion.a
-                        href="#"
-                        style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                    >
-                        <motion.div
-                            style={{
-                                width: '42px',
-                                height: '42px',
-                                borderRadius: '12px',
-                                overflow: 'hidden',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                            whileHover={{ rotate: 5 }}
-                        >
-                            <img src="/logo.png" alt="MobileUI" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        </motion.div>
-                        <span style={{
-                            fontSize: '22px',
-                            fontWeight: 700,
-                            color: '#FAFAFA',
-                            letterSpacing: '-0.02em'
-                        }}>Native Bits</span>
-                    </motion.a>
-
-                    {/* Desktop Nav */}
-                    <div style={{ alignItems: 'center', gap: '8px' }} className="hidden md:flex">
-                        {navLinks.map((link, i) => (
-                            <motion.a
-                                key={link.name}
-                                href={link.href}
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 * i, duration: 0.5 }}
-                                style={{
-                                    color: '#A1A1AA',
-                                    textDecoration: 'none',
-                                    fontSize: '14px',
-                                    fontWeight: 500,
-                                    padding: '10px 16px',
-                                    borderRadius: '10px',
-                                    transition: 'all 0.2s'
-                                }}
-                                whileHover={{
-                                    color: '#FAFAFA',
-                                    background: 'rgba(255, 255, 255, 0.05)'
-                                }}
-                            >
-                                {link.name}
-                            </motion.a>
-                        ))}
+                        justifyContent: 'center'
+                    }}>
+                        <div style={{
+                            position: 'absolute',
+                            inset: 0,
+                            borderRadius: '10px',
+                            background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                            opacity: 0.2
+                        }} />
+                        <Zap size={18} color="#FAFAFA" fill="currentColor" />
                     </div>
+                    <span style={{
+                        fontSize: '18px',
+                        fontWeight: 700,
+                        color: '#FAFAFA',
+                        letterSpacing: '-0.02em',
+                        fontFeatureSettings: '"ss01" 1'
+                    }}>Native Bits</span>
+                </motion.a>
 
-                    {/* CTA */}
-                    <div style={{ alignItems: 'center', gap: '12px' }} className="hidden md:flex">
+                {/* Desktop Nav */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '2px', background: 'rgba(255,255,255,0.03)', padding: '4px', borderRadius: '100px' }} className="hidden md:flex">
+                    {navLinks.map((link) => (
                         <motion.a
-                            href="#"
+                            key={link.name}
+                            href={link.href}
                             style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px',
                                 color: '#A1A1AA',
                                 textDecoration: 'none',
-                                fontSize: '14px',
-                                padding: '10px 14px',
-                                borderRadius: '10px',
-                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                fontSize: '13px',
+                                fontWeight: 500,
+                                padding: '8px 16px',
+                                borderRadius: '100px',
+                                transition: 'all 0.2s',
+                                position: 'relative'
                             }}
                             whileHover={{
                                 color: '#FAFAFA',
-                                borderColor: 'rgba(255, 255, 255, 0.15)',
-                                background: 'rgba(255, 255, 255, 0.03)'
+                                background: 'rgba(255, 255, 255, 0.08)'
                             }}
-                            transition={{ duration: 0.2 }}
                         >
-                            <Github style={{ width: '16px', height: '16px' }} />
-                            <Star style={{ width: '14px', height: '14px', fill: 'currentColor' }} />
-                            <span style={{ fontWeight: 600 }}>2.5k</span>
+                            {link.name}
                         </motion.a>
-                        <motion.button
-                            style={{
-                                background: '#FAFAFA',
-                                color: '#09090B',
-                                padding: '10px 20px',
-                                borderRadius: '10px',
-                                fontSize: '14px',
-                                fontWeight: 600,
-                                border: 'none',
-                                cursor: 'pointer',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px'
-                            }}
-                            whileHover={{
-                                scale: 1.02,
-                                boxShadow: '0 0 30px rgba(255, 255, 255, 0.2)'
-                            }}
-                            whileTap={{ scale: 0.98 }}
-                            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                        >
-                            Get Started
-                            <ArrowUpRight style={{ width: '16px', height: '16px' }} />
-                        </motion.button>
-                    </div>
+                    ))}
+                </div>
 
-                    {/* Mobile Menu Button */}
-                    <motion.button
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                {/* Right Side: GitHub + CTA */}
+                <div style={{ alignItems: 'center', gap: '12px' }} className="hidden md:flex">
+                    <motion.a
+                        href="#"
                         style={{
-                            color: '#FAFAFA',
-                            background: 'rgba(255, 255, 255, 0.05)',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                            borderRadius: '10px',
-                            cursor: 'pointer',
+                            color: '#A1A1AA',
                             padding: '10px',
+                            borderRadius: '50%',
+                            display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            transition: 'color 0.2s'
                         }}
-                        className="flex md:hidden"
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ color: '#FAFAFA', background: 'rgba(255,255,255,0.05)' }}
                     >
-                        {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-                    </motion.button>
-                </motion.div>
-            </div>
+                        <Github size={20} />
+                    </motion.a>
 
-            {/* Mobile Menu */}
+                    <motion.button
+                        style={{
+                            background: '#FAFAFA',
+                            color: '#09090B',
+                            padding: '10px 20px',
+                            borderRadius: '100px',
+                            fontSize: '13px',
+                            fontWeight: 600,
+                            border: 'none',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px'
+                        }}
+                        whileHover={{
+                            scale: 1.05,
+                            boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)'
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        Get Access
+                        <ArrowUpRight size={14} />
+                    </motion.button>
+                </div>
+
+                {/* Mobile Menu Button */}
+                <motion.button
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    style={{
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '50%',
+                        background: isMobileMenuOpen ? 'rgba(255,255,255,0.1)' : 'transparent',
+                        border: 'none',
+                        color: '#FAFAFA',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer'
+                    }}
+                    className="flex md:hidden"
+                    whileTap={{ scale: 0.9 }}
+                >
+                    {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                </motion.button>
+            </motion.div>
+
+            {/* Mobile Menu Dropdown */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
                         style={{
                             position: 'absolute',
-                            top: '100%',
-                            left: '20px',
-                            right: '20px',
-                            background: 'rgba(15, 15, 18, 0.98)',
-                            backdropFilter: 'blur(40px)',
-                            borderRadius: '20px',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            top: '80px',
+                            left: '16px',
+                            right: '16px',
                             padding: '20px',
-                            marginTop: '8px',
+                            background: 'rgba(20, 20, 22, 0.95)',
+                            backdropFilter: 'blur(30px)',
+                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            borderRadius: '24px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '8px',
+                            zIndex: 99,
+                            pointerEvents: 'auto',
                             boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)'
                         }}
                         className="md:hidden"
@@ -214,39 +214,23 @@ export default function Navbar() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.05 }}
                                 style={{
-                                    display: 'block',
+                                    padding: '16px',
+                                    borderRadius: '16px',
+                                    background: 'rgba(255,255,255,0.03)',
                                     color: '#A1A1AA',
                                     textDecoration: 'none',
-                                    padding: '14px 16px',
-                                    fontSize: '16px',
+                                    fontSize: '15px',
                                     fontWeight: 500,
-                                    borderRadius: '12px',
-                                    marginBottom: '4px'
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between'
                                 }}
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 {link.name}
+                                <ArrowUpRight size={14} style={{ opacity: 0.5 }} />
                             </motion.a>
                         ))}
-                        <motion.button
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2 }}
-                            style={{
-                                width: '100%',
-                                marginTop: '12px',
-                                background: '#FAFAFA',
-                                color: '#09090B',
-                                padding: '14px',
-                                borderRadius: '12px',
-                                fontSize: '14px',
-                                fontWeight: 600,
-                                border: 'none',
-                                cursor: 'pointer'
-                            }}
-                        >
-                            Get Started
-                        </motion.button>
                     </motion.div>
                 )}
             </AnimatePresence>

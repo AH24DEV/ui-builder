@@ -62,7 +62,7 @@ AnimatedButton(
     {
         name: 'Gradient Card',
         category: 'Cards',
-        color: '#f093fb',
+        color: '#667eea',
         preview: (
             <motion.div
                 style={{
@@ -70,13 +70,13 @@ AnimatedButton(
                     padding: '20px',
                     background: 'linear-gradient(145deg, rgba(24, 24, 27, 0.9), rgba(15, 15, 18, 0.95))',
                     borderRadius: '16px',
-                    border: '1px solid rgba(240, 147, 251, 0.2)',
-                    boxShadow: '0 8px 32px rgba(240, 147, 251, 0.15)'
+                    border: '1px solid rgba(102, 126, 234, 0.2)',
+                    boxShadow: '0 8px 32px rgba(102, 126, 234, 0.15)'
                 }}
-                whileHover={{ scale: 1.02, borderColor: 'rgba(240, 147, 251, 0.4)' }}
+                whileHover={{ scale: 1.02, borderColor: 'rgba(102, 126, 234, 0.4)' }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'linear-gradient(135deg, #f093fb, #f5576c)', marginBottom: '12px' }} />
+                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'linear-gradient(135deg, #667eea, #764ba2)', marginBottom: '12px' }} />
                 <div style={{ fontSize: '13px', fontWeight: 600, color: '#FAFAFA', marginBottom: '4px' }}>Card Title</div>
                 <div style={{ fontSize: '11px', color: '#71717A' }}>Description</div>
             </motion.div>
@@ -85,14 +85,14 @@ AnimatedButton(
             'react-native': `import { GradientCard } from 'mobileui-pro';
 
 <GradientCard
-  gradient={['#f093fb', '#f5576c']}
+  gradient={['#667eea', '#764ba2']}
   title="Card Title"
   description="Description text"
 />`,
             flutter: `import 'package:mobileui_pro/mobileui_pro.dart';
 
 GradientCard(
-  gradient: [Color(0xFFf093fb), Color(0xFFf5576c)],
+  gradient: [Color(0xFF667eea), Color(0xFF764ba2)],
   title: 'Card Title',
   description: 'Description text',
 )`

@@ -21,31 +21,31 @@ const features = [
         icon: Zap,
         title: '50+ Animations',
         description: 'Smooth micro-interactions and stunning transitions.',
-        gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
     },
     {
         icon: Palette,
         title: 'Customizable',
         description: 'Easy to customize colors, sizes, and behaviors.',
-        gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
     },
     {
         icon: Gauge,
         title: '60fps Performance',
         description: 'Optimized for smooth, native-like experience.',
-        gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
+        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
     },
     {
         icon: Smartphone,
         title: 'Cross Platform',
         description: 'Works on React Native & Flutter seamlessly.',
-        gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
     },
     {
         icon: Code2,
         title: 'TypeScript',
         description: 'Full type safety and amazing DX.',
-        gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
+        gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
     }
 ];
 
